@@ -7,6 +7,7 @@
 namespace simialbi\yii2\growl;
 
 
+use simialbi\yii2\web\AnimationAsset;
 use simialbi\yii2\widgets\Widget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -77,6 +78,11 @@ class Growl extends Widget
      * @var array the options for rendering the close button tag.
      */
     public $closeButton = [];
+
+    /**
+     * @var boolean use animations
+     */
+    public $useAnimation = true;
 
     /**
      * @var array the HTML attributes for the growl icon container.
@@ -204,6 +210,10 @@ class Growl extends Widget
     protected function registerPlugin($pluginName = null)
     {
         GrowlAsset::register($this->view);
+
+        if ($this->useAnimation) {
+            AnimationAsset::register($this->view);
+        }
 
         $js = "jQuery.$pluginName(" . Json::encode($this->_settings) . ", " . Json::encode($this->clientOptions) . ");";
         if (!empty($this->delay) && $this->delay > 0) {
