@@ -1,0 +1,62 @@
+{
+	"name": "simialbi/yii2-widget-growl",
+	"description": "A widget to generate growl based notifications",
+	"keywords": [
+		"yii2",
+		"yii2-widgets",
+		"extension",
+		"widget",
+		"growl",
+		"alert",
+		"notification",
+		"bootstrap",
+		"jquery",
+		"plugin"
+	],
+	"type": "yii2-extension",
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/simialbi/yii2-widget-growl/issues",
+		"source": "https://github.com/simialbi/yii2-widget-growl"
+	},
+	"authors": [
+		{
+			"name": "Simon Karlen",
+			"email": "simi.albi@gmail.com"
+		}
+	],
+	"minimum-stability": "stable",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://asset-packagist.org"
+		}
+	],
+	"require": {
+		"php": ">=5.6",
+		"yiisoft/yii2": "~2.0",
+		"yiisoft/yii2-bootstrap4": "~1.0@dev",
+		"simialbi/yii2-simialbi-base": "^0.2",
+		"npm-asset/bootstrap4-notify": "~4.0"
+	},
+	"require-dev": {
+		"yiisoft/yii2-coding-standards": "~2.0",
+		"phpunit/phpunit": "*"
+	},
+	"suggest": {
+		"rmrevin/yii2-fontawesome": "Font awesome icons"
+	},
+	"config": {
+		"process-timeout": 1800
+	},
+	"autoload": {
+		"psr-4": {
+			"simialbi\\yii2\\growl\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"yiiunit\\extensions\\growl\\": "tests"
+		}
+	}
+}
