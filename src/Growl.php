@@ -1,7 +1,7 @@
 <?php
 /**
  * @package yii2-widget-growl
- * @author Simon Karlen <simi.albi@gmail.com>
+ * @author Simon Karlen <simi.albi@outlook.com>
  */
 
 namespace simialbi\yii2\growl;
