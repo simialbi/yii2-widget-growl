@@ -17,11 +17,11 @@ use simialbi\yii2\web\AssetBundle;
 class GrowlAsset extends AssetBundle
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public $sourcePath = '@npm/bootstrap4-notify';
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public $js = [
         'bootstrap-notify.min.js'

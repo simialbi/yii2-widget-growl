@@ -205,9 +205,9 @@ class Growl extends Widget
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function registerPlugin($pluginName = null)
+    protected function registerPlugin($pluginName = null, $selector = null)
     {
         GrowlAsset::register($this->view);
 
