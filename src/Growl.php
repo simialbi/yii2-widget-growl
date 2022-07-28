@@ -6,7 +6,6 @@
 
 namespace simialbi\yii2\growl;
 
-
 use simialbi\yii2\web\AnimationAsset;
 use simialbi\yii2\widgets\Widget;
 use yii\helpers\ArrayHelper;
@@ -123,7 +122,7 @@ class Growl extends Widget
     /**
      * Initializes the widget
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
         $this->initOptions();
@@ -133,7 +132,7 @@ class Growl extends Widget
      * Initializes the widget options.
      * This method sets the default values for various options.
      */
-    protected function initOptions()
+    protected function initOptions(): void
     {
         $this->_settings = [
             'message' => $this->body,
@@ -156,7 +155,7 @@ class Growl extends Widget
         $progressTitle = ArrayHelper::remove($this->progressBarOptions, 'title', '');
         Html::addCssClass($this->progressContainerOptions, $class);
         Html::addCssClass($this->progressBarOptions, 'progress-bar bg-{0}');
-        $class = "alert alert-{0}";
+        $class = 'alert alert-{0}';
         if (empty($this->options['class'])) {
             $this->options['class'] = "col-11 col-md-3 {$class}";
         } else {
@@ -175,8 +174,11 @@ class Growl extends Widget
             Html::tag($iconTag, '', $this->iconOptions) . "\n" .
             Html::tag('span', '{1}', $this->titleOptions) . "\n" .
             Html::tag('span', '{2}', $this->bodyOptions) . "\n" .
-            Html::tag('div', Html::tag('div', $progressTitle, $this->progressBarOptions),
-                $this->progressContainerOptions) . "\n" .
+            Html::tag(
+                'div',
+                Html::tag('div', $progressTitle, $this->progressBarOptions),
+                $this->progressContainerOptions
+            ) . "\n" .
             Html::a('', '{3}', $this->linkOptions);
         $this->clientOptions['template'] = Html::tag('div', $content, $this->options);
         $this->registerPlugin('notify');
@@ -187,7 +189,7 @@ class Growl extends Widget
      *
      * @return string the rendering result
      */
-    protected function renderCloseButton()
+    protected function renderCloseButton(): string
     {
         if ($this->closeButton !== null) {
             $tag = ArrayHelper::remove($this->closeButton, 'tag', 'button');
@@ -207,7 +209,7 @@ class Growl extends Widget
     /**
      * {@inheritDoc}
      */
-    protected function registerPlugin($pluginName = null, $selector = null)
+    protected function registerPlugin(?string $pluginName = null, ?string $selector = null)
     {
         GrowlAsset::register($this->view);
 
@@ -215,7 +217,7 @@ class Growl extends Widget
             AnimationAsset::register($this->view);
         }
 
-        $js = "jQuery.$pluginName(" . Json::encode($this->_settings) . ", " . Json::encode($this->clientOptions) . ");";
+        $js = "jQuery.$pluginName(" . Json::encode($this->_settings) . ', ' . Json::encode($this->clientOptions) . ');';
         if (!empty($this->delay) && $this->delay > 0) {
             $js = "setTimeout(function () { $js }, {$this->delay});";
         }

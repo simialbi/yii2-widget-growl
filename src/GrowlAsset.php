@@ -6,7 +6,6 @@
 
 namespace simialbi\yii2\growl;
 
-
 use simialbi\yii2\web\AssetBundle;
 
 /**
